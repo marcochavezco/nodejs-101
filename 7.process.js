@@ -1,5 +1,5 @@
 // arguments
-console.log(process.argv);
+console.log(process.argv)
 
 // process.exit(0);
 // process.exit(1);
@@ -8,4 +8,4 @@ console.log(process.argv);
 //   console.log('Process will exit now');
 // });
 
-console.log(process.cwd());
+console.log(process.cwd())
