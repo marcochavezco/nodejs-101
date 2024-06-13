@@ -1,8 +1,8 @@
 ### GET
-GET http://localhost:1234/pokemon/ditto
+GET http://localhost:1235/pokemon/ditto
 
 ### POST
-POST http://localhost:1234/pokemon
+POST http://localhost:1235/pokemon
 content-type: application/json
 
 {
