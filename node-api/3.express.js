@@ -2,11 +2,17 @@ const express = require('express')
 
 const dittoJSON = require('./pokemon/ditto.json')
 
-const app = express()
+const PORT = process.env.PORT ?? 1235
 
+const app = express()
 app.disable('x-powered-by')
 
-const PORT = process.env.PORT ?? 1235
+app.use((req, res, next) => {
+  console.log('Mi first middleware')
+  // look for cookies
+  // track user
+  next()
+})
 
 app.get('/pokemon/ditto', (req, res) => {
   res.json(dittoJSON)
