@@ -2,7 +2,7 @@
 GET http://localhost:3000/movies
 
 ### Get movie by id
-GET http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+GET http://localhost:3000/movies/aa6d2254-875d-11ef-b10a-1101d116f89c
 
 ### Get all movies by genre
 GET http://localhost:3000/movies?genre=action
