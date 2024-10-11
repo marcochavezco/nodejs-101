@@ -63,7 +63,13 @@ export class MoviesModel {
 
   static async create ({ input }) {}
 
-  static async delete ({ id }) {}
+  static async delete ({ id }) {
+    await connection.query('SET FOREIGN_KEY_CHECKS = 0;')
+    const [movie] = await connection.query('DELETE FROM movie WHERE id = UUID_TO_BIN(?);', [id])
+    await connection.query('SET FOREIGN_KEY_CHECKS = 1;')
+
+    return movie.affectedRows > 0
+  }
 
   static async update ({ id, input }) {}
 }

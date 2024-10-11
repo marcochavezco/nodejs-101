@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Delete a movie
-DELETE http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+DELETE http://localhost:3000/movies/83c83e5a-87a2-11ef-b10a-1101d116f89c
 Content-Type: application/json
 
 ### Update a movie
