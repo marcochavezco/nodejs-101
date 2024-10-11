@@ -22,11 +22,12 @@ Content-Type: application/json
 }
 
 ### Update a movie
-PATCH http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+PATCH http://localhost:3000/movies/4e7c5f64-87f8-11ef-b10a-1101d116f89c
 Content-Type: application/json
 
 {
-  "year": 1994
+  "duration": 420,
+  "director": "Zack Snyder"
 }
 
 ### Delete a movie
@@ -34,7 +35,7 @@ DELETE http://localhost:3000/movies/83c83e5a-87a2-11ef-b10a-1101d116f89c
 Content-Type: application/json
 
 ### Update a movie
-PATCH http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+PATCH http://localhost:3000/movies/83c83f5e-87a2-11ef-b10a-1101d116f89c
 Content-Type: application/json
 
 {

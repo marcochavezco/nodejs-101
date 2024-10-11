@@ -71,5 +71,14 @@ export class MoviesModel {
     return movie.affectedRows > 0
   }
 
-  static async update ({ id, input }) {}
+  static async update ({ id, input }) {
+    let movie
+    for (const key in input) {
+      movie = await connection.query(`
+        UPDATE movie
+        SET ${key} = ?
+        WHERE id = UUID_TO_BIN(?);`, [input[key], id])
+    }
+    return [movie]
+  }
 }
