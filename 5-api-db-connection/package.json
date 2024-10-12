@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch api/index.js",
+    "start:mysql": "node --watch server-mysql.js",
+    "start:local": "node --watch server-local.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
