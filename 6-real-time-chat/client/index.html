@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <section id="chat">
+    <form id="form">
+      <input type="text" id="input" autocomplete="off" placeholder="Type a message">
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</body>
+</html>
