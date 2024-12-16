@@ -6,8 +6,36 @@
   <script type="module">
     import { io } from 'https://cdn.socket.io/4.3.2/socket.io.esm.min.js'
 
+    const getUser = async () => {
+      const user = localStorage.getItem('user')
+      console.log(user)
+      if (user) return user
+
+      chat.insertAdjacentHTML('beforebegin', `
+        <form id="user-form">
+          <input type="text" id="user-input" autocomplete="off" placeholder="Enter your name">
+          <button type="submit">Submit</button>
+        </form>
+      `)
+
+      const userForm = document.getElementById('user-form')
+      const userInput = document.getElementById('user-input')
+
+      userForm.addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        if (userInput.value) {
+          localStorage.setItem('user', userInput.value)
+        }
+        
+        userForm.remove()
+        location.reload()
+      })
+    }
+
     const socket = io({
       auth: {
+        user: await getUser(),
         serverOffset: 0
       }
     })
@@ -16,7 +44,7 @@
     const input = document.getElementById('input')
     const messages = document.getElementById('messages')
 
-    socket.on('chat message', (msg, serverOffset) => {
+    socket.on('chat message', (msg, serverOffset, user) => {
       const item = `<li>${msg}</li>`
       messages.insertAdjacentHTML('beforeend', item)
       socket.auth.serverOffset = serverOffset
@@ -40,6 +68,7 @@
       <input type="text" id="input" autocomplete="off" placeholder="Type a message">
       <button type="submit">Send</button>
     </form>
+
   </section>
 </body>
 </html>
