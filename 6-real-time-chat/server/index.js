@@ -36,7 +36,6 @@ io.on('connection', async (socket) => {
   socket.on('chat message', async (msg) => {
     let result;
     const user = socket.handshake.auth.user ?? 'Anonymous';
-    console.log(user, msg);
     try {
       result = await db.execute({
         sql: 'INSERT INTO messages (content, user) VALUES (:msg, :user)',
@@ -46,13 +45,14 @@ io.on('connection', async (socket) => {
       console.error(e);
     }
 
+    console.log(user);
     io.emit('chat message', msg, result.lastInsertRowid.toString(), user);
   });
 
   if (!socket.recovered) {
     try {
       const results = await db.execute({
-        sql: 'SELECT id, content FROM messages WHERE id > ?',
+        sql: 'SELECT id, content, user FROM messages WHERE id > ?',
         args: [socket.handshake.auth.serverOffset ?? 0],
       });
 
