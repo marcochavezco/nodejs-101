@@ -156,7 +156,7 @@
       }
 
       #input:focus {
-        outline: 0;
+        outline: none;
       }
 
       #form > button {
@@ -169,6 +169,10 @@
 
       #form > button:hover {
         background: #0cf;
+      }
+
+      #form > button:focus {
+        outline: none;
       }
 
       #user-form {
@@ -190,6 +194,10 @@
         border-radius: 4px;
       }
 
+      #user-form > button:focus {
+        outline: none;
+      }
+
       #user-input {
         padding: 8px;
         border: 1px solid #ccc;
@@ -197,6 +205,10 @@
         flex: 1;
         margin-right: 8px;
         margin-bottom: 20px;
+      }
+
+      #user-input:focus {
+        outline: none;
       }
 
       .modal {
