@@ -74,3 +74,5 @@ app.get('/', (req, res) => {
 server.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
+
+export default server;
